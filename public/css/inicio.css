@@ -1,0 +1,261 @@
+body {
+	font: 100% Arial, FreeSans, sans-serif;
+	color: Black;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-wrapper{
+    padding-bottom: 0;
+    padding-top: 16px;
+    width: 1152px;
+}
+
+.fa-adjust::before{
+    content: "\f042";  
+}
+
+a, a:link, a:visited, a:hover, a:active, .fas {
+	color: #1351b4 !important;
+    text-decoration: none;
+}
+
+.navbar-nav {
+	--bs-nav-link-padding-x: none !important;
+}
+
+.language::after {
+	content: '';
+	position: absolute;
+	display: block;
+	width: 1px;
+	height: 20px;
+	background-color: #ccc;
+	right: -8px;
+	top: 3px;
+}
+
+.signed-out{
+    background-color: #1351b4;
+color: #fff;
+padding: 0 22px;
+  padding-bottom: 0px;
+padding-bottom: 3px;
+align-items: center;
+}
+
+.sso-status-bar.signed-out .signed-out {
+	color: #fff;
+}
+
+
+
+.sso-status-bar-signed-out-icon::before {
+	display: block;
+	font-family: "Font Awesome 5 Free";
+	content: "\f007";
+	font-weight: 900;
+	color: #fff;
+	font-size: 13px;
+	margin-right: 8px;
+	padding-top: 2px;
+}
+
+.texto-desktop {
+	display: inline-block;
+	margin-left: 5px;
+}
+
+button{
+border-radius: 1.5em !important;
+border: solid 0.1em #1351b4;
+cursor: pointer;
+font-family: rawline, sans-serif;
+font-size: medium;
+font-weight: 600;
+height: 3em;
+margin: 0.5ex;
+vertical-align: middle;
+--button-radius: 100em;
+--button-xsmall: 24px;
+--button-small: 32px;
+--button-medium: 40px;
+--button-large: 48px;
+--button-size: var(--button-medium);
+align-items: center;
+background-color: transparent;
+border: 0;
+color: #1351b4;
+cursor: pointer;
+display: inline-flex;
+font-size: 16px;
+font-weight: 600;
+height: var(--button-size);
+justify-content: center;
+overflow: hidden;
+padding: 0 16px;
+position: relative;
+text-align: center;
+vertical-align: middle;
+white-space: nowrap;
+width: auto;
+--background: #f8f8f8;
+--sign-in-img: 20px;
+background-color: #f8f8f8;
+padding: 0 var(--spacing-scale-2x);
+}
+
+div, span {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	letter-spacing: normal;
+	vertical-align: baseline;
+}
+main{
+  
+}
+/*Serviços e Informações*/
+.main {
+    display: flex;
+    justify-content: center;
+}
+
+ .subheader {
+    width: 1152px;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	padding-bottom: 4px;
+	padding-top: 4px;
+	position: relative;
+}
+
+.main .subheader {
+	min-height: 88px;
+	padding-bottom: 16px;
+	padding-top: 16px;
+}
+
+.subheader .site-name-wrapper {
+	-webkit-box-align: baseline;
+	-ms-flex-align: baseline;
+	align-items: baseline;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.subheader .site-name-wrapper .toggle-main-navigation {
+	margin-left: -5.5px;
+}
+
+.subheader .site-name-wrapper .site-name {
+	-webkit-box-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+	margin: 0;
+	padding: 0;
+}
+
+.subheader .site-name-wrapper .site-name a {
+	font-size: 2.4rem;
+	line-height: 26px;
+	padding: 0 0 4px;
+    -webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	display: -webkit-box;
+	overflow: hidden;
+	color: #333 !important;
+	font-size: 1.4rem;
+	font-weight: 400;
+	line-height: 16px;
+	padding: 0 0 3px;
+}
+
+.subheader .site-name-wrapper .toggle-main-navigation .fa   {
+	font-size: 24px;
+	line-height: 32px;
+	width: 32px;
+	margin-left: 1.1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 600;
+	font-size: 3.6rem;
+	color: #0c326f;
+	line-height: 4.4rem;
+}
+.subheader, #breadcrumbs, .card, .content,.portaltype-collective-cover-content .row .row-content, #main, html .buorg-pad, header#site-header.has-navigation-dropdown .navigation-wrapper .navigation-content, header#site-header.has-navigation-dropdown .navigation-wrapper .navigation-content-extra .links-redes-wrap, #breadcrumbs .content, .portaltype-collective-cover-content .documentFirstHeading, .portaltype-collective-cover-content .documentSubtitle, .portaltype-collective-cover-content .documentDescription, .portaltype-collective-cover-content #viewlet-above-content-body, .govbr-history-render .history-list, .br-cookiebar.default .br-modal .br-card .container, #site-header .header-wrapper, #portal-footer .footer-wrapper, .portaltype-collective-cover-content #content .linha-destaquetopo .tile-content > *, .portaltype-collective-cover-content #content .linha-destaquetopo-adaptavel .tile-content > *, .portaltype-collective-cover-content #content .linha-destaquehome .tile-content > *, .portaltype-servico .informacao-foi-util .wrapper, body.template-folder_contents #main, body.template-folder_contents #content, body.template-edit #main, body.template-edit #content, body.template-layoutedit #main, body.template-layoutedit #content, body.template-sharing #main, body.template-sharing #content, body.template-manage-aliases #main, body.template-manage-aliases #content, body.template-personal-information #main, body.template-personal-information #content, body.template-personal-preferences #main, body.template-personal-preferences #content, body.template-dashboard #main, body.template-dashboard #content, body.template-manage-dashboard #main, body.template-manage-dashboard #content, body.template-overview-controlpanel #main, body.template-overview-controlpanel #content, .template-manage-portlets.portaltype-collective-cover-content #main, .template-content-checkout #content, .template-content-cancel-checkout #content {
+	width: 1152px;
+	padding-right: 0;
+	padding-left: 0;
+}
+
+/*BreadCrumb*/
+#portal-breadcrumbs-wrapper, .content-votation{
+    display: flex;
+    justify-content: center;
+	margin-left: 1.1rem;
+}
+
+
+#breadcrumbs .content {
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+	padding-top: 12px;
+	padding-bottom: 12px;
+}
+
+#breadcrumbs .content .home::before {
+	content: none;
+}
+
+.fa-home::before {
+	content: "\f015";
+}
+
+#breadcrumbs .content > span a {
+	text-decoration: none;
+	color: #1351b4;
+}
+#breadcrumbs .content > span::before {
+	content: '>';
+	color: #9e9d9d;
+	padding: 0 8px;
+	font-size: 1.2rem;
+}
+#breadcrumbs .content #breadcrumbs-current {
+	font-weight: 600;
+}
+
+/*Card Content*/
+#content-votation{
+	display: flex;
+	justify-content: center;
+	padding-top: 18px;
+}
+
+.content{
+	display: flex;
+	flex-direction: row;
+}
+
+.card{
+	margin-right: 18px;
+}
+#f, #s{
+	color: #fff !important;
+}
+
