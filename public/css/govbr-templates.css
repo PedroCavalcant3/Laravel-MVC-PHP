@@ -263,11 +263,6 @@ header img {
   max-width: 279px;
 }
 
-.card a {
-  flex: 1 1 100%;
-  font-size: 1em;
-  font-weight: 500;
-}
 
 main h5 i {
   margin: 0 10px 0 20px;
@@ -358,7 +353,7 @@ main .button-panel {
   display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
   display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   width: 100%;
 }
@@ -604,7 +599,7 @@ hr {
 }
 
 #login-button-panel {
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 #two-factor {

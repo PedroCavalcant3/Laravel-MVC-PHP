@@ -59,13 +59,8 @@
                                 <span class="fas fa-adjust" id="a" aria-hidden="true"></span>
                             </li>
                         </ul>
-
-                        <button class="button signed-out">
-                            <span class="sso-status-bar-signed-out-icon"></span>
-                            Entrar
-                            <span class="texto-desktop"> com o <span>gov.br</span></span>
-                        </button>
-
+                        
+                       
                     </div>
                 </div>
             </nav>

@@ -19,6 +19,19 @@ header{
     content: "\f042";  
 }
 
+#login{
+
+	font-size:16px;
+	line-height: 26px;
+
+	color: #fff !important;
+	font-weight: 400;
+	line-height: 16px;
+	padding: 0 0 3px;
+
+
+}
+
 a, a:link, a:visited, a:hover, a:active, .fas {
 	color: #1351b4 !important;
     text-decoration: none;
@@ -26,17 +39,6 @@ a, a:link, a:visited, a:hover, a:active, .fas {
 
 .navbar-nav {
 	--bs-nav-link-padding-x: none !important;
-}
-
-.language::after {
-	content: '';
-	position: absolute;
-	display: block;
-	width: 1px;
-	height: 20px;
-	background-color: #ccc;
-	right: -8px;
-	top: 3px;
 }
 
 .signed-out{

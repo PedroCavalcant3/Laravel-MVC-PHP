@@ -4,10 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>gov.br - Acesse sua conta</title>
-  <meta property="creator.productor" content="http://estruturaorganizacional.dados.gov.br/id/unidade-organizacional/2981">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-
-  <link rel="icon" href="/../imagens/icons/favicon.ico" type="image/x-icon">
   <!-- Page CSS -->
   <link rel="stylesheet" href="../css/govbr-highcontrast.css">
   <link rel="stylesheet" href="../css/govbr-templates.css">
@@ -33,7 +30,6 @@
 		<img id="identidade-govbr" src="../imagem/icons/conta_govbr_v2.jpg" alt="Logomarca GovBR" />
 	</aside>
 	<main id="main-signin">
-    <x-guest-layout>
     <x-auth-session-status class="mb-4" :status="session('status')" />
 	<form method="POST" id="loginData" action="{{ route('login') }}">
         @csrf
@@ -43,38 +39,39 @@
 			<h3>Identifique-se no gov.br com:</h3>
 			<div class="item-login-signup-ways">
 				<img src="../imagem/icons/id-card-solid.png">
-				<a tabindex="3">Número do CPF</a>
+				<label tabindex="3">E-mail</label>
 			</div>
 			<div class="accordion-panel" id="accordion-panel-id">
-				<p>Digite seu CPF para <strong>criar</strong> ou <strong>acessar</strong> sua conta gov.br</p>
+				<p><strong>crie</strong> ou <strong>acesse</strong> sua conta gov.br</p>
 				 <!-- Email Address -->
                  <div>
-            <label for="email" :value="__('Email')" />
-            <input id="email" class="accountId" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            <label for="email" :value="__('Email')"/>
+            <input id="email" class="accountId" type="text" name="email" :value="old('email')" required autofocus autocomplete="username" />
+            <x-input-error :messages="$errors->get('email')" class="mt-2" /> <br/>
         </div>
 				 <!-- Password -->
                  <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+            <label for="password" :value="__('Password')">Password</label> <br/>
 
             <x-text-input id="password" class="accountPassword"
                             type="password"
                             name="password"
                             required autocomplete="current-password" />
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+            <x-input-error :messages="$errors->get('password')"  />
         </div>
-				<div class="button-panel" id="login-button-panel">
-					<button name="action" class="button-continuar" type="submit" tabindex="2">Entrar</button>
-				</div>
-			</div>
-            <div class="flex items-center justify-end mt-4">
+        <div class="flex items-center justify-end mt-4">
             @if (Route::has('password.request'))
                 <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
                     {{ __('Forgot your password?') }}
                 </a>
             @endif
         </div>
+				<div class="button-panel" id="login-button-panel">
+					<button name="action" class="button-continuar" type="submit" tabindex="2">Entrar</button>
+				</div>
+			</div>
+            
                 <!-- Remember Me -->
         <div class="block mt-4">
             <label for="remember_me" class="inline-flex items-center">
@@ -118,19 +115,9 @@
 			</div>
 		</div>
 	</form>
-    </x-guest-layout>
 	</main>
-</div>
-
-
-
-
-  <footer>
-  </footer>
-
- 
+</div> 
 </body>
 
 </html>
-
 
