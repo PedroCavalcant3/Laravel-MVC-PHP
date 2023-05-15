@@ -12,8 +12,8 @@ class VotoSeeder extends Seeder
      * Run the database seeds.
      */
     public function run(): void
-    {  DB::table('voto')->insertOrIgnore([  
-        'id'=> 1,
+    {  DB::table('voto')->insert([  
+        'id'=>1,
         'id_usuario' => 1,   
         'id_votos' => 7771,
 
