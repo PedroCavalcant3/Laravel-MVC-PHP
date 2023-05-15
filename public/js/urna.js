@@ -1,4 +1,37 @@
-$(function (){
+function inserir(valor) {
+  var valor1 = document.getElementById("cxNumero1").value;
+  var valor2 = document.getElementById("cxNumero2").value;
+  var valor3 = document.getElementById("cxNumero3").value;
+  var valor4 = document.getElementById("cxNumero4").value;
+
+  if (valor1 == "") {
+      document.getElementById("cxNumero1").value = valor;
+  } else if (valor2 == "") {
+      document.getElementById("cxNumero2").value = valor;
+  }
+  else if (valor3 == "") {
+    document.getElementById("cxNumero3").value = valor;
+}
+else if (valor4 == "") {
+  document.getElementById("cxNumero4").value = valor;
+}
+}
+
+function corrigir() {
+
+  const campos = ["cxNumero1","cxNumero2","cxNumero3","cxNumero4"]
+
+  for (let i = (campos.length - 1); i < campos.length; i--) {
+    const valor = document.getElementById(campos[i]).value;
+
+    if (valor != "") {
+      document.getElementById(campos[i]).value = "";
+      break;
+    }
+  }
+}
+
+/*$(function (){
   $(document).ready(function() {
     verificarURL().then(function(urlRecuperada){
       url = urlRecuperada;
@@ -1407,4 +1440,4 @@ $(function (){
         }
       });    
     }
-
+*/

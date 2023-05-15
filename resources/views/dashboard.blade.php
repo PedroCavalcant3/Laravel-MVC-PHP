@@ -52,7 +52,7 @@
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="#">ES</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('salvarvoto')}}" >ES</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item">
@@ -61,6 +61,8 @@
                                 </span>
                             </li>
                         </ul>
+
+                        
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown language" href="#" role="button" data-bs-toggle="dropdown"
@@ -166,7 +168,7 @@
                 
                 <p class="card-text">As eleições federais (presidente, senadores e deputados federais) atualmente coincidem com as estaduais 
                     (governadores e deputados estaduais).</p>
-                <a href="depEstadual.php" id="f" class="btn btn-primary">Votar</a>
+                <a href=" {{ route('depfederal')}}" id="f" class="btn btn-primary">Votar</a>
             </div>
         </div>
         <div class="card" style="width: 18rem;">
@@ -184,7 +186,9 @@
         </section>
     </section>
 
+        
 
 </body>
 
 </html>
+

@@ -1,12 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="{{ app()->getLocale() }}"xml:lang="pt-br">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{{ app()->getLocale() }}" xml:lang="pt-br">
   <head>
     <title>Simulador</title>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=9">
 
-    <link type="text/css" rel="stylesheet" href="/css/deputadoFederal.css" />
-    <link type="text/css" rel="stylesheet" href="/css/urna.css/>
+    <link type="text/css" rel="stylesheet" href="/css/deputadoEstadual.css" />
+    <link type="text/css" rel="stylesheet" href="/css/urna.css"/>
     <script type="text/javascript" src="js/lib/jquery.min.js"></script>
     <script type="text/javascript" src="js/lib/jquery-ui.min.js"></script>
     <script type="text/javascript" src="js/lib/jquery.pulse.min.js"></script>
@@ -18,14 +18,14 @@
     <style type="text/css">
         .sr-only {position: absolute; width: 1px; height: 1px; padding:0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border:0}
         h1 { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; }
-      </style>
+    </style>
     </head>
     <body>
-        <input type="hidden" id="codigoCargo" value="4" data-turno="1" />
+        <input type="hidden" id="codigoCargo" value="5" data-turno="1" />
         <div class="listaConcorrentes">
             <div class="partidoHeader">Para visualização dos candidatos, <strong>selecione um partido</strong>:</div>
             <button type="button" id="fecharImagem" class="close" aria-label="Close" style="display: none;">
-                <span aria-hidden="true">×</span>
+                <span aria-hidden="true">×</span>
             </button>
             <img src="" id="imagemCandidatos" alt="imagem cola dos candidatos" style="display: none;">
         </div>
@@ -34,8 +34,9 @@
         </div>
         <div id="topo-pag">
             <div class="barra-topo">&nbsp;</div>
-            <div class="logoje"><img src="/images/pecas/logo-je.png" width="115" height="45" border="0"/></div>
+            <div class="logoje"><img src="/imagem/pecas/logo-je.png" width="115" height="45" border="0"/></div>
         </div>
+        
         <div id="conteudo">
             <img id="tela" alt="tela" src="/imagem/pecas/tela.jpg" width="451" height="423" border="0">
             <img id="topo" alt="topo da urna" src="/imagem/pecas/topo.jpg" width="192" height="183" border="0">
@@ -63,7 +64,7 @@
             <div id="fase">TREINAMENTO</div>
             <div id="cabecalho">SEU VOTO PARA</div>
             <div id="cxFoto"><img id="foto" alt="foto do candidato" src="" width="101" height="145" /></div>
-            <div id="cargo">Deputado Federal</div>
+            <div id="cargo">Deputado Estadual</div>
             <span id="habilitaNumeros">true</span>
             <div id="numeros">
                 <div id="numeroLabel">N&uacute;mero:</div>
@@ -71,6 +72,7 @@
                 <div id="cxNumero2" class="cxNumero"></div>
                 <div id="cxNumero3" class="cxNumero"></div>
                 <div id="cxNumero4" class="cxNumero"></div>
+                <div id="cxNumero5" class="cxNumero"></div>
             </div>
             <div id="avisoErrado">N&Uacute;MERO ERRADO</div>
             <div id="avisoInexistente">CANDIDATO INEXISTENTE</div>
@@ -93,12 +95,12 @@
             <div id="instrucoes">
                 <span id="obs">(voto de legenda)</span>
                 <span id="textoInstrucoes">Aperte a tecla:</span>
-                <span id="verde">CONFIRMA</span><span id="restoVerde0">para PROSSEGUIR</span><span id ="restoVerde1">para CONFIRMAR este voto</span>
+                <span id="verde">CONFIRMA</span><span id ="restoVerde0">para PROSSEGUIR</span><span id ="restoVerde1">para CONFIRMAR este voto</span>
                 <span id="laranja">CORRIGE</span><span id ="restoLaranja">para REINICIAR este voto</span>
             </div>
             <div id="libras">&nbsp;</div>
             <div id="audioAtivado">
-                <span id="textoAudioAtivado">Áudio ativado</span><img alt="icone de acessibilidade ativada" src="image/audioHabilitado.png" id="imagemAudioAtivado" />
+                <span id="textoAudioAtivado">Áudio ativado</span><img alt="icone de acessibilidade ativada" src="/images/pecas/audioHabilitado.png" id="imagemAudioAtivado" />
             </div>
         </div>
         <div id="ajuda" style="display:none; position: absolute; left: 840px; top: 212px;"><a href="files/ajuda.pdf" target="_self"><img src="image/ajuda.jpg"/></a></div>
@@ -106,16 +108,16 @@
             <source  src="sons/ops.mp3" type="audio/mp3" />
             <source  src="sons/ops.wav" type="audio/wav" />
             <div style="display:none">
-                    <object id="mediaPlayer" type="audio/mpeg" width="1" height="1">
-                        <param name="src" value="sons/ops.mp3" />
-                    </object>
+                <object class="mediaPlayer" type="audio/mpeg" width="1" height="1">
+                    <param name="src" value="sons/ops.mp3" />
+                </object>
             </div>
         </audio>
         <audio id="audioInter">
             <source src="sons/inter.mp3" type="audio/mp3" />
             <source src="sons/inter.wav" type="audio/wav" />
             <div style="display:none">
-                <object id="mediaPlayer" type="audio/mpeg" width="1" height="1">
+                <object class="mediaPlayer" type="audio/mpeg" width="1" height="1">
                     <param name="src" value="sons/inter.mp3" />
                 </object>
             </div>

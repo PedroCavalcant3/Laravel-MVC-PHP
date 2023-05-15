@@ -133,7 +133,7 @@
                 <h5 class="card-title">Eleição Federal</h5>
                 <p class="card-text">As eleições federais (presidente, senadores e deputados federais) atualmente coincidem com as estaduais 
                     (governadores e deputados estaduais).</p>
-                <a href="depEstadual.php" id="f" class="btn btn-primary">Votar</a>
+                <a href="depfederal.php" id="f" class="btn btn-primary">Votar</a>
             </div>
         </div>
         <div class="card" style="width: 18rem;">

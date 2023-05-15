@@ -18,7 +18,7 @@
     <style type="text/css">
         .sr-only {position: absolute; width: 1px; height: 1px; padding:0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border:0}
         h1 { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; }
-    </style>
+    </style>{{ route('depfederal')}}
     </head>
     <body>
         <input type="hidden" id="codigoCargo" value="2" data-turno="1" />
