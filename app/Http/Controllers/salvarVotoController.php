@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Candidate;
 use App\Models\User;
 use App\Models\voto;
 use App\Models\votos;
@@ -13,24 +14,25 @@ class salvarVotoController extends Controller
 {
     public function salvarVotos(Request $request){
 
-        $votos='';
+        $voto='';
         $array = ["votos1","votos2","votos3","votos4"];
 
         for ($i=0; $i < 4 ; $i++) { 
             $auxiliar = $array[$i];
             $value = $request->$auxiliar;
-            $votos .= $value;
+            $voto .= $value;
         }  
 
-        // first CREATE the news (not just an empty instance, but a full model with own unique id)
-        voto::create([ 
-        'id_usuario' => 1,   // there might be a better solution, but this works 100%
-        'id_votos' => 7771,
-]);
- 
-        return view('depfederal');
+        $user = User::with('candidates')->first();
 
-   
-}
+
+        $candidate = Candidate::find($voto);
+        $user->candidates()->save($candidate);
+    
+        $user->refresh();
+    
+
+        return view('depfederal'); 
+    }
 
 }

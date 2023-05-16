@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=9">
 
     <link type="text/css" rel="stylesheet" href="/css/deputadoFederal.css" />
-    <link type="text/css" rel="stylesheet" href="/css/urna.css/>
+    <link type="text/css" rel="stylesheet" href="/css/urna.css/">
     <script type="text/javascript" src="js/lib/jquery.min.js"></script>
     <script type="text/javascript" src="js/lib/jquery-ui.min.js"></script>
     <script type="text/javascript" src="js/lib/jquery.pulse.min.js"></script>
