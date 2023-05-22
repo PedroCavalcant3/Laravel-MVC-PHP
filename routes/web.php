@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CandidatoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\salvarVotoController;
 use App\Models\Candidate;
@@ -26,7 +27,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/depfederal', function () {
-    return view('depfederal');
+    $ocultarImagem = false; // Defina o valor da variável 
+    return view('depfederal')->with('ocultarImagem', $ocultarImagem);
 })->middleware(['auth', 'verified'])->name('depfederal');
 
 Route::get('/depestadual', function () {
@@ -45,19 +47,20 @@ Route::get('/presidente', function () {
     return view('presidente');
 })->middleware(['auth', 'verified'])->name('presidente');
 
+Route::post('/verificar-candidato', 'CandidatoController@verificarCandidato');
 Route::post('/salvarvotorota', [salvarVotoController::class, 'salvarVotos'])->middleware(['auth', 'verified'])->name('salvarvoto');
 
-Route::get('/many-to-many', function () {
+Route::post('/verificar-candidato', [CandidatoController::class, 'verificarCandidato'])->name('verificar-candidato');
 
+Route::get('/salvar-candidato', function () {
+
+	dd(Candidate::create(['id'=>881,'nome'=>'Escobar Gavilha','partido'=>'Unidos da Vila Maria', 'cargo'=>'Senador']));
+    /*
     $user = User::with('candidates')->first();
-
-
     $candidate = Candidate::find(7771);
     $user->candidates()->save($candidate);
-
     $user->refresh();
-
-	dd($user->candidates);  
+	dd($user->candidates);  */
 });
 
 
@@ -70,3 +73,4 @@ Route::middleware('auth')->group(function () {
 
 
 require __DIR__.'/auth.php';
+

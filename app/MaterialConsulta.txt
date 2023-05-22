@@ -1,0 +1,36 @@
+migration dos candidatos e da tabea pivô, tabela user ja vem padrão:
+
+	Schema::create('candidates', function (Blueprint $table) {
+            $table->id();
+            $table->string('nome');
+            $table->string('partido');
+            $table->string('cargo');
+            $table->timestamps();
+        });
+
+        Schema::create('candidate_user', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('candidate_id')->constrained('candidates');
+            $table->foreignId('user_id')->constrained('users');
+            $table->timestamps();
+
+
+Criar um candidato:
+
+ 	dd(Candidate::create(['id'=>7771,'nome'=>'joao da bicicleta','partido'=>'partido no meio', 'cargo'=>'deputado federal']));
+
+
+Trazer do banco todos os votos relacionados com o usuario 1:
+
+	$user = User::with('candidates')->find(1);
+
+	dd($user->candidates);
+
+Vincular o usuario com o candidadoto votado:
+	
+	$candidates = Candidate::find(1); //or ::first();
+
+
+	
+
+
