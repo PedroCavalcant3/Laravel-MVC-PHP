@@ -30,6 +30,7 @@ class CandidatoController extends Controller
         if ($candidato) {
             $resposta = [
                 'existeCandidato' => true,
+                'tipo'=>$candidato->cargo,
                 'src' => 'imagem/candidatos/' . $candidato->id . '.png',
                 'nome'=>$candidato->nome,
                 'partido'=>$candidato->partido

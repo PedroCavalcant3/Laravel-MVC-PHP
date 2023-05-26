@@ -3,6 +3,23 @@ document.getElementById('img-candidato').style.display='none';
 
 }
 
+function mostrarCandidato(){
+  imgCandidato.src = resposta.src;
+    imgCandidato.alt = 'Foto do Candidato';
+    imgCandidato.style.display='unset';
+    cabecalho.style.display="unset";
+    candidato.style.display="unset";
+    candidatoLabel.style.display="unset";
+    candidato.innerHTML = resposta.nome;
+    partido.style.display="unset";
+    partidoLabel.style.display="unset";
+    instrucoes.style.display="unset";
+    regua.style.display="unset";
+    errado.style.display="none";
+    nulo.style.display="none";
+    partido.innerHTML = resposta.partido;
+}
+
 
 function inserir(valor) {
   
@@ -40,20 +57,7 @@ function corrigir() {
 
 function verificarCandidato() {
   
-  var digito1 = document.getElementById('digito1').value;
-  var digito2 = document.getElementById('digito2').value;
-  var digito3 = document.getElementById('digito3').value;
-  var digito4 = document.getElementById('digito4').value;
-  var imgCandidato = document.getElementById('img-candidato');
-  var cabecalho = document.getElementById('cabecalho');
-  var candidatoLabel = document.getElementById('candidatoLabel');
-  var candidato = document.getElementById('candidatoNome');
-  var partidoLabel = document.getElementById('partidoLabel');
-  var partido = document.getElementById('partidoNome');
-  var instrucoes = document.getElementById('instrucoes');
-  var regua = document.getElementById('regua');
-  var errado = document.getElementById('avisoErrado');
-  var nulo = document.getElementById('avisoNulo');
+  var { digito1, digito2, digito3, digito4, errado, nulo, instrucoes, regua, imgCandidato, cabecalho, candidato, candidatoLabel, partido, partidoLabel } = getFromViews();
   
 
   // Faça a requisição AJAX para verificar o candidato
@@ -67,24 +71,34 @@ function verificarCandidato() {
 
           // Verifique se o candidato existe
           if (resposta.existeCandidato) {
-              // Modifique o src da tag img
+
+            if(resposta.tipo == "deputado federal"){
+
               if (digito1 && digito2 && digito3 && digito4) {
               
-              imgCandidato.src = resposta.src;
-              imgCandidato.alt = 'Foto do Candidato';
-              imgCandidato.style.display='unset';
-              cabecalho.style.display="unset";
-              candidato.style.display="unset";
-              candidatoLabel.style.display="unset";
-              candidato.innerHTML = resposta.nome;
-              partido.style.display="unset";
-              partidoLabel.style.display="unset";
-              instrucoes.style.display="unset";
-              regua.style.display="unset";
-              errado.style.display="none";
-              nulo.style.display="none";
-              partido.innerHTML = resposta.partido;
-              }
+                mostrarCandidato(resposta);
+                }
+            }
+            if(resposta.tipo == "deputado estadual"){
+
+              alert("aaaaaaaaaa");
+            }
+            if(resposta.tipo == "governador"){
+
+              alert("aaaaaaaaaa");
+            }
+
+            if(resposta.tipo == "presidente"){
+
+              alert("aaaaaaaaaa");
+            }
+
+            if(resposta.tipo == "Senador"){
+
+              alert("aaaaaaaaaa");
+            }
+              // Modifique o src da tag img
+              
           } else if (digito1 == '' && digito2 == '' && digito3 == '' && digito4 == '') {
             errado.style.display="none";
               nulo.style.display="none";
@@ -128,5 +142,40 @@ function verificarCandidato() {
 
   xhr.send(data);
   
+
+  function getFromViews() {
+    var digito1 = document.getElementById('digito1').value;
+    var digito2 = document.getElementById('digito2').value;
+    var digito3 = document.getElementById('digito3').value;
+    var digito4 = document.getElementById('digito4').value;
+    var imgCandidato = document.getElementById('img-candidato');
+    var cabecalho = document.getElementById('cabecalho');
+    var candidatoLabel = document.getElementById('candidatoLabel');
+    var candidato = document.getElementById('candidatoNome');
+    var partidoLabel = document.getElementById('partidoLabel');
+    var partido = document.getElementById('partidoNome');
+    var instrucoes = document.getElementById('instrucoes');
+    var regua = document.getElementById('regua');
+    var errado = document.getElementById('avisoErrado');
+    var nulo = document.getElementById('avisoNulo');
+    return { digito1, digito2, digito3, digito4, errado, nulo, instrucoes, regua, imgCandidato, cabecalho, candidato, candidatoLabel, partido, partidoLabel };
+  }
+
+  function mostrarCandidato(resposta) {
+    imgCandidato.src = resposta.src;
+    imgCandidato.alt = 'Foto do Candidato';
+    imgCandidato.style.display = 'unset';
+    cabecalho.style.display = "unset";
+    candidato.style.display = "unset";
+    candidatoLabel.style.display = "unset";
+    candidato.innerHTML = resposta.nome;
+    partido.style.display = "unset";
+    partidoLabel.style.display = "unset";
+    instrucoes.style.display = "unset";
+    regua.style.display = "unset";
+    errado.style.display = "none";
+    nulo.style.display = "none";
+    partido.innerHTML = resposta.partido;
+  }
 }
 
