@@ -59,7 +59,7 @@
             <img id="ptabaixo7" alt="parte abaixo 7" src="/imagem/pecas/ptabaixo7.jpg" width="51" height="36" border="0">
             <img id="n_0" onclick="inserir(0)" alt="tecla número 0" src="/imagem/pecas/n0.jpg" width="56" height="36" border="0">
             <img id="ptabaixo9" alt="parte abaixo 9" src="/imagem/pecas/ptabaixo9.jpg" width="40" height="28" border="0">
-            <button type="submit"><img id="confirma" alt="tecla confirma" src="/imagem/pecas/confirma.jpg" width="66" height="49" border="0"/></button>
+            <button type="submit"><img id="confirma" alt="tecla confirma"src="/imagem/pecas/confirma.jpg" width="66" height="49" border="0"/></button>
             <img id="branco" alt="tecla branco" src="/imagem/pecas/branco.jpg" width="63" height="41" border="0">
             <img id="corrige" onclick="corrigir();verificarCandidato()" alt="tecla corrige" src="/imagem/pecas/corrige.jpg" width="63" height="41" border="0">
             <img id="abaixoTec"  alt="abaixo do teclado" src="/imagem/pecas/abaixoTec.jpg" width="226" height="27" border="0">

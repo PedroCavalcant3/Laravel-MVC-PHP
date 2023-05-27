@@ -28,19 +28,38 @@ class salvarVotoController extends Controller
         $candidate = Candidate::find($voto);
     
     // Verifique se o candidato foi encontrado
-    if ($candidate) {
+        if ($candidate) {
 
-        $user = User::with('candidates')->first();
-        $candidate = Candidate::find($voto);
-        $user->candidates()->save($candidate);
-        $user->refresh();
-    
-        return view('depestadual'); 
+            $user = User::with('candidates')->first();
+            $candidate = Candidate::find($voto);
+            $user->candidates()->save($candidate);
+            $user->refresh();
             
-    } else {
-        return view('depfederal'); 
-    }
+            switch($candidate->cargo) {
+                case('deputado federal'):
+    
+                    return redirect()->route('depfederal');
+    
+                case('deputado estadual'):
+                    
+                    return redirect()->route('depestadual');
 
-      
+                case('senador'):
+                    
+                    return redirect()->route('senador');
+                    
+                case('governador'):
+                    
+                    return redirect()->route('governador');
+
+                case('presidente'):
+                    
+                    return redirect()->route('presidente');    
+            }
+        }
+        
+        else{
+            return redirect()->back();
+        }
     }
 }

@@ -54,7 +54,16 @@ Route::post('/verificar-candidato', [CandidatoController::class, 'verificarCandi
 
 Route::get('/salvar-candidato', function () {
 
-	dd(Candidate::create(['id'=>881,'nome'=>'Escobar Gavilha','partido'=>'Unidos da Vila Maria', 'cargo'=>'Senador']));
+	//dd(Candidate::create(['id'=>7771,'nome'=>'joao lucas','partido'=>'partido no meio', 'cargo'=>'deputado federal']));
+
+    //dd(Candidate::create(['id'=>77771,'nome'=>'matheus henrik','partido'=>'unidos da vila maria', 'cargo'=>'deputado estadual']));
+
+    //dd(Candidate::create(['id'=>771,'nome'=>'marlon dos Santos','partido'=>'partido no meio', 'cargo'=>'senador']));
+    
+    //dd(Candidate::create(['id'=>71,'nome'=>'gostavo fring','partido'=>'unidos da vila maria', 'cargo'=>'governador']));
+
+    //dd(Candidate::create(['id'=>17,'nome'=>'Pedro Cavalcante','partido'=>'partido no meio', 'cargo'=>'presidente']));
+
     /*
     $user = User::with('candidates')->first();
     $candidate = Candidate::find(7771);
