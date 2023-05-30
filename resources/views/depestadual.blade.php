@@ -8,7 +8,7 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=9">
 
-    <link rel="stylesheet" href="css/deputadoFederal.css">
+    <link rel="stylesheet" href="css/deputadoEstadual.css">
     <link type="text/css" rel="stylesheet" href="css/urna.css">
     <script type="text/javascript" src="js/urna.js"></script>
     <script type="text/javascript" src="js/lib/jquery.min.js"></script>
@@ -81,11 +81,11 @@
             <div id="numeros">
                 <div id="numeroLabel">N&uacute;mero:</div>
 
-                <input type="text" class="cxNumero1" id="digito1"  name="digito1"maxlength="1" onchange="verificarCandidato()">
-                <input type="text" class="cxNumero2" id="digito2"  name="digito2"maxlength="1" onchange="verificarCandidato()">
-                <input type="text" class="cxNumero3"  id="digito3"  name="digito3" maxlength="1" onchange="verificarCandidato()">
-                <input type="text" class="cxNumero4"  id="digito4"  name="digito4" maxlength="1" onchange="verificarCandidato()">
-                <input type="text" class="cxNumero5"  id="digito5"  name="digito5" maxlength="1" onchange="verificarCandidato()">
+                <input type="text" class="cxNumero1" id="digito1"  name="digito1"maxlength="1" onchange="verificarCandidato()"/>
+                <input type="text" class="cxNumero2" id="digito2"  name="digito2"maxlength="1" onchange="verificarCandidato()"/>
+                <input type="text" class="cxNumero3"  id="digito3"  name="digito3" maxlength="1" onchange="verificarCandidato()"/>
+                <input type="text" class="cxNumero4"  id="digito4"  name="digito4" maxlength="1" onchange="verificarCandidato()"/>
+                <input type="text" class="cxNumero5"  id="digito5"  name="digito5" maxlength="1" onchange="verificarCandidato()"/>
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
             </div>
             </form>

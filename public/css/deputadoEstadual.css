@@ -36,7 +36,7 @@
     padding: 2px;
 }
 
-#cxNumero1 {
+.cxNumero1 {
     display: block;
     position: absolute;
     left: 75px;
@@ -50,7 +50,7 @@
     text-align: center;
 }
 
-#cxNumero2 {
+.cxNumero2 {
     display: block;
     position: absolute;
     left: 104px;
@@ -65,7 +65,7 @@
     text-align: center;
 }
 
-#cxNumero3 {
+.cxNumero3 {
     display: block;
     position: absolute;
     left: 133px;
@@ -80,7 +80,7 @@
     text-align: center;
 }
 
-#cxNumero4 {
+.cxNumero4 {
     display: block;
     position: absolute;
     left: 162px;
@@ -95,7 +95,7 @@
     text-align: center;
 }
 
-#cxNumero5 {
+.cxNumero5 {
     display: block;
     position: absolute;
     left: 191px;

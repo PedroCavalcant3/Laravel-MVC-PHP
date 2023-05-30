@@ -18,9 +18,10 @@ class salvarVotoController extends Controller
         $digito2 = $request->input('digito2');
         $digito3 = $request->input('digito3');
         $digito4 = $request->input('digito4');
+        $digito5 = $request->input('digito5');
     
         // Forme o ID do candidato a partir dos dígitos
-        $voto = $digito1 . $digito2 . $digito3 . $digito4;
+        $voto = $digito1 . $digito2 . $digito3 . $digito4 . $digito5;
         $voto = str_replace(' ', '', $voto);
 
     
@@ -38,28 +39,33 @@ class salvarVotoController extends Controller
             switch($candidate->cargo) {
                 case('deputado federal'):
     
-                    return redirect()->route('depfederal');
+                    return redirect()->route('depestadual');
     
                 case('deputado estadual'):
                     
-                    return redirect()->route('depestadual');
-
-                case('senador'):
-                    
                     return redirect()->route('senador');
-                    
-                case('governador'):
+
+                case('Senador'):
                     
                     return redirect()->route('governador');
-
-                case('presidente'):
                     
-                    return redirect()->route('presidente');    
+                case('Governador'):
+                    
+                    return redirect()->route('presidente');
+
+                case('Presidente'):
+                    
+                    return redirect()->route('resultado');    
             }
         }
         
         else{
-            return redirect()->back();
+            
+            $user = User::with('candidates')->first();
+            $candidate = Candidate::find(0001);
+            $user->candidates()->save($candidate);
+            $user->refresh();
+
         }
     }
 }

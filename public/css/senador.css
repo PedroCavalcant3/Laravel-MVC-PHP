@@ -113,7 +113,7 @@
     padding: 2px;
 }
 
-#cxNumero1 {
+.cxNumero1 {
     display: block;
     position: absolute;
     left: 83px;
@@ -127,7 +127,7 @@
     text-align: center;
 }
 
-#cxNumero2 {
+.cxNumero2 {
     display: block;
     position: absolute;
     left: 112px;
@@ -142,7 +142,7 @@
     text-align: center;
 }
 
-#cxNumero3 {
+.cxNumero3 {
     display: block;
     position: absolute;
     left: 141px;
@@ -171,7 +171,7 @@
     padding: 2px;
 }
 
-/*#candidatoNome{
+#candidatoNome{
     display: none;
     position:absolute;
     left:120px;
@@ -181,7 +181,7 @@
     border:0px solid #000;
     font-size: 36px;
     font-weight: 400;
-}*/
+}
 
 #candidatoNome {
     display: block;

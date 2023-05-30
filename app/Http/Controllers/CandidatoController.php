@@ -18,9 +18,10 @@ class CandidatoController extends Controller
         $digito2 = $request->input('digito2');
         $digito3 = $request->input('digito3');
         $digito4 = $request->input('digito4');
+        $digito5 = $request->input('digito5');
     
         // Forme o ID do candidato a partir dos dígitos
-        $idCandidato = $digito1 . $digito2 . $digito3 . $digito4;
+        $idCandidato = $digito1 . $digito2 . $digito3 . $digito4 . $digito5;
         $idCandidato = str_replace(' ', '', $idCandidato);
 
     

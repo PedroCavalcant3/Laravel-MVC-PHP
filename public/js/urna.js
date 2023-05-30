@@ -22,42 +22,83 @@ function mostrarCandidato(){
 
 
 function inserir(valor) {
-  
-  var valor1 = document.getElementById("digito1").value;
-  var valor2 = document.getElementById("digito2").value;
-  var valor3 = document.getElementById("digito3").value;
-  var valor4 = document.getElementById("digito4").value;
+  var quantidadeDigitos = 0;
+  var votacao = document.getElementById("cargo").innerText;
 
-  if (valor1 == "") {
-      document.getElementById("digito1").value = valor;
-  } else if (valor2 == "") {
-      document.getElementById("digito2").value = valor;
+  switch (votacao) {
+    case "Deputado Estadual":
+      quantidadeDigitos = 5;
+      break;
+    case "Deputado Federal":
+      quantidadeDigitos = 4;
+      break;
+    case "Senador":
+      quantidadeDigitos = 3;
+      break;
+    case "Governador":
+      quantidadeDigitos = 2;
+      break;
+    case "Presidente":
+      quantidadeDigitos = 2;
+      break;
+    default:
+      break;
   }
-  else if (valor3 == "") {
-    document.getElementById("digito3").value = valor;
+
+  var inputs = [];
+
+  for (var i = 1; i <= quantidadeDigitos; i++) {
+    var input = document.getElementById("digito" + i).value;
+    inputs.push(input);
+  }
+
+  var primeiroVazio = inputs.findIndex(function (valor) {
+    return valor === "";
+  });
+
+  if (primeiroVazio !== -1) {
+    document.getElementById("digito" + (primeiroVazio + 1)).value = valor;
+  }
 }
-else if (valor4 == "") {
-  document.getElementById("digito4").value = valor;
-}
-}
+
 
 function corrigir() {
+  var quantidadeDigitos = 0;
+  var votacao = document.getElementById("cargo").innerText;
+  switch (votacao) {
+    case "Deputado Estadual":
+      quantidadeDigitos = 5;
+      break;
+    case "Deputado Federal":
+      quantidadeDigitos = 4;
+      break;
+    case "Senador":
+      quantidadeDigitos = 3;
+      break;
+    case "Governador":
+      quantidadeDigitos = 2;
+      break;
+    case "Presidente":
+      quantidadeDigitos = 2;
+      break;
+    default:
+      break;
+  }
 
-  const campos = ["digito1","digito2","digito3","digito4"]
+  for (var i = quantidadeDigitos; i >= 1; i--) {
+    var campo = document.getElementById("digito" + i);
+    var valor = campo.value;
 
-  for (let i = (campos.length - 1); i < campos.length; i--) {
-    const valor = document.getElementById(campos[i]).value;
-
-    if (valor != "") {
-      document.getElementById(campos[i]).value = "";
+    if (valor !== "") {
+      campo.value = "";
       break;
     }
   }
 }
 
 function verificarCandidato() {
-  
-  var { digito1, digito2, digito3, digito4, errado, nulo, instrucoes, regua, imgCandidato, cabecalho, candidato, candidatoLabel, partido, partidoLabel } = getFromViews();
+  var votacao = document.getElementById("cargo").innerText;
+  var { digito1, digito2, digito3, digito4, digito5, errado, nulo, instrucoes, regua, imgCandidato, cabecalho, candidato, candidatoLabel, partido, partidoLabel } = getFromViews(votacao);
   
 
   // Faça a requisição AJAX para verificar o candidato
@@ -69,37 +110,33 @@ function verificarCandidato() {
       if (xhr.readyState === 4 && xhr.status === 200) {
           var resposta = JSON.parse(xhr.responseText);
 
+          var votacao = document.getElementById("cargo").innerText;
+
           // Verifique se o candidato existe
           if (resposta.existeCandidato) {
-
-            if(resposta.tipo == "deputado federal"){
-
-              if (digito1 && digito2 && digito3 && digito4) {
-              
+            if (votacao === "Deputado Estadual") {
+              if (resposta.tipo === "deputado estadual" && digito1 && digito2 && digito3 && digito4 && digito5) {
                 mostrarCandidato(resposta);
-                }
+              }
+            } else if (votacao === "Deputado Federal") {
+              if (resposta.tipo === "deputado federal" && digito1 && digito2 && digito3 && digito4) {
+                mostrarCandidato(resposta);
+              }
+            } else if (votacao === "Senador") {
+              if (resposta.tipo === "Senador" && digito1 && digito2 && digito3) {
+                mostrarCandidato(resposta);
+              }
+            } else if (votacao === "Governador") {
+              if (resposta.tipo === "Governador" && digito1 && digito2) {
+                mostrarCandidato(resposta);
+              }
+            } else if (votacao === "Presidente") {
+              if (resposta.tipo === "Presidente" && digito1 && digito2) {
+                mostrarCandidato(resposta);
+              }
             }
-            if(resposta.tipo == "deputado estadual"){
-
-              alert("aaaaaaaaaa");
-            }
-            if(resposta.tipo == "governador"){
-
-              alert("aaaaaaaaaa");
-            }
-
-            if(resposta.tipo == "presidente"){
-
-              alert("aaaaaaaaaa");
-            }
-
-            if(resposta.tipo == "Senador"){
-
-              alert("aaaaaaaaaa");
-            }
-              // Modifique o src da tag img
-              
-          } else if (digito1 == '' && digito2 == '' && digito3 == '' && digito4 == '') {
+          } 
+          else if (digito1 == '' && digito2 == '' && digito3 == '' && digito4 == '') {
             errado.style.display="none";
               nulo.style.display="none";
               instrucoes.style.display="none";
@@ -121,10 +158,6 @@ function verificarCandidato() {
               partido.style.display="none";
               errado.style.display="unset";
               nulo.style.display="unset";
-
-
-
-              
           }
       }
   };
@@ -135,6 +168,8 @@ function verificarCandidato() {
       digito2:digito2,
       digito3:digito3,
       digito4:digito4,
+      digito5:digito5,
+
       _token: '{{ csrf_token() }}'
   });
 
@@ -143,11 +178,8 @@ function verificarCandidato() {
   xhr.send(data);
   
 
-  function getFromViews() {
-    var digito1 = document.getElementById('digito1').value;
-    var digito2 = document.getElementById('digito2').value;
-    var digito3 = document.getElementById('digito3').value;
-    var digito4 = document.getElementById('digito4').value;
+  function getFromViews(votacao) {
+    var campos = [];
     var imgCandidato = document.getElementById('img-candidato');
     var cabecalho = document.getElementById('cabecalho');
     var candidatoLabel = document.getElementById('candidatoLabel');
@@ -158,8 +190,53 @@ function verificarCandidato() {
     var regua = document.getElementById('regua');
     var errado = document.getElementById('avisoErrado');
     var nulo = document.getElementById('avisoNulo');
-    return { digito1, digito2, digito3, digito4, errado, nulo, instrucoes, regua, imgCandidato, cabecalho, candidato, candidatoLabel, partido, partidoLabel };
+  
+    // Definir os campos de acordo com a votação
+    switch (votacao) {
+      case 'Deputado Estadual':
+        campos = ['digito1', 'digito2', 'digito3', 'digito4', 'digito5'];
+        break;
+      case 'Deputado Federal':
+        campos = ['digito1', 'digito2', 'digito3', 'digito4'];
+        break;
+      case 'Senador':
+        campos = ['digito1', 'digito2', 'digito3'];
+        break;
+      case 'Governador':
+        campos = ['digito1', 'digito2'];
+        break;
+      case 'Presidente':
+        campos = ['digito1', 'digito2'];
+        break;    
+      // Adicionar mais casos para outros tipos de candidato, como Senador, Governador, Presidente, etc.
+      default:
+        break;
+    }
+  
+    // Obter os valores dos campos
+    var valores = campos.map(function (campo) {
+      return document.getElementById(campo).value;
+    });
+  
+    // Retornar um objeto com os valores e os elementos HTML
+    return {
+      ...valores.reduce(function (acc, valor, index) {
+        acc['digito' + (index + 1)] = valor;
+        return acc;
+      }, {}),
+      errado,
+      nulo,
+      instrucoes,
+      regua,
+      imgCandidato,
+      cabecalho,
+      candidato,
+      candidatoLabel,
+      partido,
+      partidoLabel
+    };
   }
+  
 
   function mostrarCandidato(resposta) {
     imgCandidato.src = resposta.src;
