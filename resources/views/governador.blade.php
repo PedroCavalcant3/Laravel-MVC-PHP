@@ -76,7 +76,7 @@
 
 
             
-            <div id="cargo">Governador</div>
+            <div id="cargo" >Governador</div>
             <span id="habilitaNumeros">true</span>
             <div id="numeros">
                 <div id="numeroLabel">N&uacute;mero:</div>

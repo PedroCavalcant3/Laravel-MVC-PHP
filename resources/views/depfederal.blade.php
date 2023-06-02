@@ -76,7 +76,7 @@
 
 
             
-            <div id="cargo">Deputado Federal</div>
+            <div id="cargo" >Deputado Federal</div>
             <span id="habilitaNumeros">true</span>
             <div id="numeros">
                 <div id="numeroLabel">N&uacute;mero:</div>

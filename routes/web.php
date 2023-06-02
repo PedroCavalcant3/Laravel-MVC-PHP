@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\salvarVotoController;
 use App\Models\Candidate;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,6 +48,11 @@ Route::get('/presidente', function () {
     return view('presidente');
 })->middleware(['auth', 'verified'])->name('presidente');
 
+Route::get('/resultado', function () {
+    $dataHoraAtual = Carbon::now();
+    return view('resultado')->with('dataHoraAtual', $dataHoraAtual);
+})->middleware(['auth', 'verified'])->name('resultado');
+
 Route::post('/verificar-candidato', 'CandidatoController@verificarCandidato');
 Route::post('/salvarvotorota', [salvarVotoController::class, 'salvarVotos'])->middleware(['auth', 'verified'])->name('salvarvoto');
 
@@ -54,6 +60,7 @@ Route::post('/verificar-candidato', [CandidatoController::class, 'verificarCandi
 
 Route::get('/salvar-candidato', function () {
 
+    dd(Candidate::create(['id'=>0000,'nome'=>'Voto Nulo','partido'=>'Nenhum', 'cargo'=>'Manifestação Apolítica']));
 	//dd(Candidate::create(['id'=>7771,'nome'=>'joao lucas','partido'=>'partido no meio', 'cargo'=>'deputado federal']));
 
     //dd(Candidate::create(['id'=>77771,'nome'=>'matheus henrik','partido'=>'unidos da vila maria', 'cargo'=>'deputado estadual']));

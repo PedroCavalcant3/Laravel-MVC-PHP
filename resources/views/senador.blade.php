@@ -76,7 +76,7 @@
 
 
             
-            <div id="cargo">Senador</div>
+            <div id="cargo" >Senador</div>
             <span id="habilitaNumeros">true</span>
             <div id="numeros">
                 <div id="numeroLabel">N&uacute;mero:</div>
