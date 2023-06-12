@@ -49,7 +49,6 @@ class salvarVotoController extends Controller
         }
 
         $rotas = [
-            'depfederal',
             'depestadual',
             'senador',
             'governador',

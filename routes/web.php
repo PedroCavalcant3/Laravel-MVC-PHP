@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CandidatoController;
+use App\Http\Controllers\ResultadoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\salvarVotoController;
 use App\Models\Candidate;
@@ -47,11 +48,11 @@ Route::get('/governador', function () {
 Route::get('/presidente', function () {
     return view('presidente');
 })->middleware(['auth', 'verified'])->name('presidente');
+Route::get('/resultado', [ResultadoController::class, 'resultado'])
+    ->middleware(['auth', 'verified'])
+    ->name('resultado');
 
-Route::get('/resultado', function () {
-    $dataHoraAtual = Carbon::now();
-    return view('resultado')->with('dataHoraAtual', $dataHoraAtual);
-})->middleware(['auth', 'verified'])->name('resultado');
+
 
 Route::post('/verificar-candidato', 'CandidatoController@verificarCandidato');
 Route::post('/salvarvotorota', [salvarVotoController::class, 'salvarVotos'])->middleware(['auth', 'verified'])->name('salvarvoto');
